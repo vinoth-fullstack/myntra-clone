@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="icon" href="https://images.indianexpress.com/2021/01/myntra.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+    rel="stylesheet">
+    <link rel="icon" href="https://i.pinimg.com/originals/75/68/05/75680550fdc2305216ad9014d2b8b8f2.png">
+<style>
+    li img {
+        width: 150px;
+        height: 60px;
+    }
+
+    li {
+        list-style-type: none;
+        font-family: "Poppins", sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .items {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .logooo {
+        display: none;
+    }
+
+    input {
+        max-width: 100%;
+        width: 400px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid black;
+        padding: 5px;
+        margin: 5px;
+        outline: none;
+    }
+
+    .toggle-button {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+        margin-right: 15px;
+    }
+
+    .close-button {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+        margin-top: 10px;
+        margin-right: 20px;
+        align-self: flex-end;
+    }
+
+    @media (max-width: 1189px) {
+        .items {
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: purple;
+            max-width: 100%;
+
+            left: 0;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .logooo {
+            display: block;
+            margin: 10px;
+        }
+
+        .items li {
+            margin-top: 10px;
+        }
+
+        .items.show {
+            display: flex;
+        }
+
+        .toggle-button {
+            display: block;
+        }
+
+        .toggle-button.hide {
+            display: none;
+        }
+
+        .close-button {
+            display: block;
+        }
+
+        .close-button.hide {
+            display: none;
+        }
+
+        .items input,
+        .items .hide-on-toggle {
+            display: block;
+        }
+
+        .items.remove-elements input,
+        .items.remove-elements .hide-on-toggle {
+            display: none;
+        }
+
+        .tog {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .image {
+            display: none;
+        }
+
+
+
+    }
+
+    .tog {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .offers img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+
+    .offers1 img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+
+    .coupon1 img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+
+    }
+
+    .twooffers {
+        display: flex;
+
+    }
+
+    .twooffers img {
+        max-width: 100%;
+        width: 50%;
+        height: auto;
+    }
+    .play img{
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+
+    .listimg {}
+
+    .listimg .image-group {
+        display: none;
+
+    }
+
+    .listimg .image-group.active {
+        display: flex;
+        max-width: 100%;
+    }
+
+    .listimg img {
+
+        width: 25%;
+
+    }
+
+    .dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .dots span {
+        height: 15px;
+        width: 15px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .dots .active {
+        background-color: #717171;
+    }
+
+    .shop img {
+        padding-top: 40px;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .mini img {
+        width: 15%;
+    }
+
+    .mini1 img {
+        width: 15%;
+    }
+
+    .mini2 img {
+
+        width: 15%;
+    }
+
+    .mini2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media (max-width: 215px) {
+        .mini img {
+            width: 12%;
+        }
+
+        .mini1 img {
+            width: 12%;
+        }
+    }
+
+    .list{
+        background-color: white;
+        top: 0px;
+        position: fixed;
+        width: 100%;
+        box-shadow:4px 8px 4px 8px rgba(255, 254, 254, 0)
+    }
+    .coupon{
+        padding-top: 100px;
+    }
+
+    .detimg img{
+        width: 200px;
+        max-width: 100%;
+        height: auto;
+    }
+    .function{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .button{
+        margin-top: 20px;
+    }
+    button{
+       font-size: 20px;
+       background-color: white;
+        color: green;
+        padding: 10px 30px 10px 30px;
+        border-radius: 5px;
+        border: 1px solid green;
+        outline: none;
+        cursor: pointer;
+    }
+    .log h3{
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    .details h4{
+        font-size: 20px;
+        font-weight: 600;
+        color: #717171;
+        text-transform: capitalize;
+    }
+</style>
+</head>
+
+<body>
+<div class="header">
+    <div class="myntra">
+
+        <div class="list">
+            <div class="tog">
+                <li class="logooo"><a href="/">
+                    <img
+                            src="https://i.pinimg.com/originals/6e/0c/ce/6e0cce3bf57f63bf582921286edd1dc7.png"
+                            alt="logo" class="images"></a></li>
+                <span class="toggle-button"><i class="fas fa-bars"></i></span>
+
+
+            </div>
+            <ul class="items">
+                <span class="close-button"><i class="fas fa-times"></i></span>
+                <li><a href="/">
+                    <img
+                            src="https://i.pinimg.com/originals/6e/0c/ce/6e0cce3bf57f63bf582921286edd1dc7.png"
+                            alt="logo" class="image"></a></li>
+                <li><a href="/men">Men</a></li>
+                <li><a href="/women">Women</a></li>
+                <li><a href="/kids">Kids</a></li>
+                <li><a href="/home&living">Home & Living</a></li>
+                <li><a href="/beauty">Beauty</a></li>
+                <li><a href="/studio">Studio</a></li>
+                <li><input type="search" placeholder="search for products"></li>
+                <li class="hide-on-toggle"><a href="#"><i class="fa-solid fa-user"></i></a></li>
+                <li class="hide-on-toggle"><a href="/wishlist"><i class="fa-regular fa-heart"></i></a></li>
+                <li class="hide-on-toggle"><a href="/cart"><i class="fa-solid fa-bag-shopping"></i></a></li>
+            </ul>
+        </div>
+        <div class="function">
+            <div class="log">
+                <h3>Please Log in </h3>
+            </div>
+            <div class="details">
+               <h4>Login to view items in cart</h4>
+            </div>
+            <div class="detimg">
+                <img src="https://cdn.dribbble.com/users/3512533/screenshots/14168376/web_1280___8_4x.jpg">
+            </div>
+            <div class="button">
+                <button>Login</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.querySelector('.toggle-button').addEventListener('click', function () {
+            document.querySelector('.items').classList.toggle('show');
+            document.querySelector('.items').classList.toggle('remove-elements');
+            document.querySelector('.toggle-button').classList.add('hide');
+        });
+        document.querySelector('.close-button').addEventListener('click', function () {
+            document.querySelector('.items').classList.remove('show');
+            document.querySelector('.items').classList.remove('remove-elements');
+            document.querySelector('.toggle-button').classList.remove('hide');
+        });
+        </script>
+    
+</body>
+</html>
